@@ -1,0 +1,5 @@
+<table>
+  <tr *ngFor="let row of rows">
+    <td *ngFor="let day of row">{{day | date: 'd'}}</td>
+  </tr>
+</table>

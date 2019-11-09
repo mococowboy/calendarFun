@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "build:elements": "ng build calendarFun --prod && node build-elements.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -15,10 +16,14 @@
     "@angular/common": "~8.2.3",
     "@angular/compiler": "~8.2.3",
     "@angular/core": "~8.2.3",
+    "@angular/elements": "^8.2.3",
     "@angular/forms": "~8.2.3",
     "@angular/platform-browser": "~8.2.3",
     "@angular/platform-browser-dynamic": "~8.2.3",
     "@angular/router": "~8.2.3",
+    "concat": "^1.0.3",
+    "document-register-element": "^1.7.2",
+    "fs-extra": "latest",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
