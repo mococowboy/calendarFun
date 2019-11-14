@@ -13,13 +13,13 @@ export class MonthService {
 
   private DAY_NAME: string[] = [
     'SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'
-  ]
+  ];
 
   private MONTH_DAYS: number[] = [
     31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
-  ]
+  ];
 
-  private isLeapYear(year: number): boolean {
+  public isLeapYear(year: number): boolean {
     return (year % 100 === 0) ? (year % 400 === 0) : (year % 4 === 0);
   }
 
@@ -51,6 +51,7 @@ export class MonthService {
   }
 
   public getMonthName(monthIndex: number): string {
+    if (monthIndex < 0 || monthIndex > 11) throw RangeError("Index is invalid");
     return this.MONTH_NAME[monthIndex];
   }
 

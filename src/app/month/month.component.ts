@@ -1,6 +1,5 @@
 import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {MonthService} from '../month.service';
-import {takeWhile} from 'rxjs/operators';
 
 @Component({
   selector: 'app-month',
@@ -24,6 +23,7 @@ export class MonthComponent implements OnChanges, OnInit {
   ngOnChanges() {
     this.monthArray = this.monthService.generatedMonth(this.year, this.monthService.getMonthIndex(this.month));
 
+    //create a row with empty Dates and then count backwards replacing the end of the weeks with the days in here?
     const firstRow: Date[] = this.monthArray.filter(d => d.getDate() <= this.monthArray.find(f => f.getDay() === 6).getDate());
 
     const lastSunday =  this.monthArray.filter(d => d.getDay() === 0).reduce((prev, curr) => prev.getDate() > curr.getDate() ? prev : curr);
