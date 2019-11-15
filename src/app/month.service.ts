@@ -1,11 +1,13 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {element} from "protractor";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MonthService {
 
-  constructor() { }
+  constructor() {
+  }
 
   private MONTH_NAME: string[] = [
     'JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'
@@ -23,19 +25,28 @@ export class MonthService {
     return (year % 100 === 0) ? (year % 400 === 0) : (year % 4 === 0);
   }
 
-  public generatedMonth(year: number, month: number): Date[] {
+  public generatedMonth(year: number, month: number): Date[][] {
     const dayArray: Date[] = [];
+    this.MONTH_DAYS[1] = this.daysInFebruary(year);
 
-    if (this.isLeapYear(year) && month === 1) {
-      for (let i = 1; i <= 29; i++) {
-        dayArray.push(new Date(year, month, i));
-      }
-    } else {
-      for (let i = 1; i <= this.MONTH_DAYS[month]; i++) {
-        dayArray.push(new Date(year, month, i));
+    //populate the entire year of dates.
+    for (let month of this.MONTH_NAME) {
+      for (let i = 1; i <= this.MONTH_DAYS[this.getMonthIndex(month)]; i++) {
+        dayArray.push(new Date(year, this.getMonthIndex(month), i));
       }
     }
-    return dayArray;
+
+    const yearWeek: Date[][] = [];
+
+    //populate an array of weeks of dates for the whole year.
+    dayArray.map((val, idx, arr) => {
+      if (val.getDay() === 0) {
+        yearWeek.push(Array.of(val, arr[idx + 1], arr[idx + 2], arr[idx + 3], arr[idx + 4], arr[idx + 5], arr[idx + 6]));
+      }
+    })
+
+    //filter out weeks that contain at least one day in the month and return
+    return yearWeek.filter(dw => dw.some(d => d && d.getMonth() === month))
   }
 
   private daysInFebruary(year: number): number {

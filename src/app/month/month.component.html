@@ -1,5 +1,5 @@
 <table>
-  <tr *ngFor="let row of rows">
+  <tr *ngFor="let row of monthArray">
     <td *ngFor="let day of row">{{day | date: 'd'}}</td>
   </tr>
 </table>
