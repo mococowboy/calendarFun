@@ -6,7 +6,7 @@ import {MonthService} from '../month.service';
   templateUrl: './month.component.html',
   styleUrls: ['./month.component.css']
 })
-export class MonthComponent implements OnChanges, OnInit {
+export class MonthComponent implements OnChanges {
 
   @Input() month: string;
   @Input() year: number;
@@ -21,10 +21,6 @@ export class MonthComponent implements OnChanges, OnInit {
 
   ngOnChanges() {
     this.monthArray = this.monthService.generatedMonth(this.year, this.monthService.getMonthIndex(this.month));
-  }
-
-  ngOnInit(): void {
-
   }
 
 }

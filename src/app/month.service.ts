@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {element} from "protractor";
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +10,6 @@ export class MonthService {
 
   private MONTH_NAME: string[] = [
     'JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'
-  ];
-
-  private DAY_NAME: string[] = [
-    'SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'
   ];
 
   private MONTH_DAYS: number[] = [
@@ -29,21 +24,21 @@ export class MonthService {
     const dayArray: Date[] = [];
     this.MONTH_DAYS[1] = this.daysInFebruary(year);
 
-    //populate the entire year of dates.
-    for (let month of this.MONTH_NAME) {
-      for (let i = 1; i <= this.MONTH_DAYS[this.getMonthIndex(month)]; i++) {
-        dayArray.push(new Date(year, this.getMonthIndex(month), i));
-      }
+    //give padding of at least a week on each side of the month
+    for (let i = -6; i <= this.MONTH_DAYS[month] + 6; i++) {
+      dayArray.push(new Date(year, month, i));
     }
 
     const yearWeek: Date[][] = [];
 
-    //populate an array of weeks of dates for the whole year.
-    dayArray.map((val, idx, arr) => {
-      if (val.getDay() === 0) {
-        yearWeek.push(Array.of(val, arr[idx + 1], arr[idx + 2], arr[idx + 3], arr[idx + 4], arr[idx + 5], arr[idx + 6]));
+    dayArray.forEach((value) => {
+      // if the array is empty or if the day is Sunday, add an empty array to be added to.
+      if (value.getDay() == 0 || yearWeek.length == 0) {
+        yearWeek.push([]);
       }
-    })
+      // add the value to the last array
+      yearWeek[yearWeek.length - 1].push(value);
+    });
 
     //filter out weeks that contain at least one day in the month and return
     return yearWeek.filter(dw => dw.some(d => d && d.getMonth() === month))
@@ -68,20 +63,12 @@ export class MonthService {
 
   public getNextMonth(month: string): string {
     let monthIndex = this.MONTH_NAME.findIndex(monthObj => monthObj === month);
-    if (monthIndex === 11) {
-      return this.MONTH_NAME[0];
-    } else {
-      return this.MONTH_NAME[++monthIndex];
-    }
+    return monthIndex === 11 ? this.MONTH_NAME[0] : this.MONTH_NAME[++monthIndex];
   }
 
   public getPrevMonth(month: string): string {
     let monthIndex = this.MONTH_NAME.findIndex(monthObj => monthObj === month);
-    if (monthIndex === 0) {
-      return this.MONTH_NAME[11];
-    } else {
-      return this.MONTH_NAME[--monthIndex];
-    }
+    return monthIndex === 0 ? this.MONTH_NAME[11] : this.MONTH_NAME[--monthIndex];
   }
 
 }
