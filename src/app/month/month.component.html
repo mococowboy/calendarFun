@@ -1,8 +1,9 @@
 <table>
   <tr *ngFor="let row of monthArray">
     <td *ngFor="let day of row">
-      <span [style.color]="day.getMonth() != this.monthService.getMonthIndex(month) ? 'lightgray' : 'black'">
-       {{day | date: 'd'}}
+      <span [attr.title]="day | date: 'fullDate'"
+            [style.color]="isCurrentMonth(day) ? 'black' : 'lightgray'">
+        {{day | date: 'd'}}
       </span>
     </td>
   </tr>

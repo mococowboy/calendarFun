@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MonthService} from './month.service';
 
 @Component({
@@ -6,17 +6,24 @@ import {MonthService} from './month.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
   month: string;
   year: number;
+  date: Date;
   monthService: MonthService;
+
+  ngOnInit(): void {
+    this.date = new Date();
+    // if today was the 31st of January and I added a month to become
+    // February, the date would be in March. This fixes that.
+    this.date.setDate(15);
+    this.month = this.monthService.getMonthName(this.date.getMonth());
+    this.year = this.date.getFullYear();
+  }
 
   constructor(monthService: MonthService) {
     this.monthService = monthService;
-
-    const reset = monthService.resetMonth();
-    this.month = this.monthService.getMonthName(reset.getMonth());
-    this.year = reset.getFullYear();
   }
 
   public next() {

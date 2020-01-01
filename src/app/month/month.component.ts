@@ -23,4 +23,8 @@ export class MonthComponent implements OnChanges {
     this.monthArray = this.monthService.generatedMonth(this.year, this.monthService.getMonthIndex(this.month));
   }
 
+  public isCurrentMonth(date: Date): boolean {
+    return this.monthService.getMonthIndex(this.month) == date.getMonth();
+  }
+
 }
