@@ -5,13 +5,6 @@ import {Injectable} from '@angular/core';
 })
 export class MonthService {
 
-  constructor() {
-  }
-
-  private MONTH_NAME: string[] = [
-    'JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'
-  ];
-
   private MONTH_DAYS: number[] = [
     31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
   ];
@@ -46,19 +39,6 @@ export class MonthService {
 
   private daysInFebruary(year: number): number {
     return (this.isLeapYear(year)) ? 29 : 28;
-  }
-
-  public resetMonth(): Date {
-    return new Date();
-  }
-
-  public getMonthIndex(month: string): number {
-    return this.MONTH_NAME.findIndex(monthArray => monthArray === month);
-  }
-
-  public getMonthName(monthIndex: number): string {
-    if (monthIndex < 0 || monthIndex > 11) throw RangeError("Index is invalid");
-    return this.MONTH_NAME[monthIndex];
   }
 
 }

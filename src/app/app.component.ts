@@ -8,8 +8,6 @@ import {MonthService} from './month.service';
 })
 export class AppComponent implements OnInit {
 
-  month: string;
-  year: number;
   date: Date;
   monthService: MonthService;
 
@@ -19,31 +17,23 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.date = new Date();
-    // if today was the 31st of January and I added a month to become
-    // February, the date would be in March. This fixes that.
+    // set date for the middle so adding months won't be weird
     this.date.setDate(15);
-    this.month = this.monthService.getMonthName(this.date.getMonth());
-    this.year = this.date.getFullYear();
   }
 
   public next() {
     this.date.setMonth(this.date.getMonth() + 1);
-    this.month = this.monthService.getMonthName(this.date.getMonth());
-    this.year = this.date.getFullYear();
     this.date = new Date(this.date);
   }
 
   public prev() {
     this.date.setMonth(this.date.getMonth() - 1);
-    this.month = this.monthService.getMonthName(this.date.getMonth());
-    this.year = this.date.getFullYear();
     this.date = new Date(this.date);
   }
 
   public reset() {
     this.date = new Date();
-    this.month = this.monthService.getMonthName(this.date.getMonth());
-    this.year = this.date.getFullYear();
+    this.date.setDate(15);
     this.date = new Date(this.date);
   }
 

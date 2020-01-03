@@ -1,6 +1,6 @@
 <div class="cal">
   <header>
-    <h2>{{month}}/{{year}}</h2>
+    <h2>{{this.date | date:'yyyy MMMM'}}</h2>
   </header>
   <nav>
     <button (click)="prev()">PREV</button>

@@ -6,7 +6,7 @@
     <td *ngFor="let day of row">
       <span [attr.title]="day | date: 'fullDate'"
             [style.color]="isCurrentMonth(day) ? 'black' : 'lightgray'">
-        {{day | date: 'd'}}
+        {{day | date: 'dd'}}
       </span>
     </td>
   </tr>

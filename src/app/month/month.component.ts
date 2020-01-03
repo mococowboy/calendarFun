@@ -11,7 +11,6 @@ export class MonthComponent implements OnChanges {
   @Input() date: Date;
 
   monthService: MonthService;
-
   monthArray: Date[][];
 
   constructor(monthService: MonthService) {
