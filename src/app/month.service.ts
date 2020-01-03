@@ -29,7 +29,7 @@ export class MonthService {
       dayArray.push(new Date(year, month, i));
     }
 
-    const yearWeek: Date[][] = [];
+    let yearWeek: Date[][] = [];
 
     dayArray.forEach((value) => {
       // if the array is empty or if the day is Sunday, add an empty array to be added to.
@@ -59,16 +59,6 @@ export class MonthService {
   public getMonthName(monthIndex: number): string {
     if (monthIndex < 0 || monthIndex > 11) throw RangeError("Index is invalid");
     return this.MONTH_NAME[monthIndex];
-  }
-
-  public getNextMonth(month: string): string {
-    let monthIndex = this.MONTH_NAME.findIndex(monthObj => monthObj === month);
-    return monthIndex === 11 ? this.MONTH_NAME[0] : this.MONTH_NAME[++monthIndex];
-  }
-
-  public getPrevMonth(month: string): string {
-    let monthIndex = this.MONTH_NAME.findIndex(monthObj => monthObj === month);
-    return monthIndex === 0 ? this.MONTH_NAME[11] : this.MONTH_NAME[--monthIndex];
   }
 
 }

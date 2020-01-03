@@ -13,6 +13,10 @@ export class AppComponent implements OnInit {
   date: Date;
   monthService: MonthService;
 
+  constructor(monthService: MonthService) {
+    this.monthService = monthService;
+  }
+
   ngOnInit(): void {
     this.date = new Date();
     // if today was the 31st of January and I added a month to become
@@ -22,28 +26,25 @@ export class AppComponent implements OnInit {
     this.year = this.date.getFullYear();
   }
 
-  constructor(monthService: MonthService) {
-    this.monthService = monthService;
-  }
-
   public next() {
-    this.month = this.monthService.getNextMonth(this.month);
-    if (this.month === 'JANUARY') {
-      ++this.year;
-    }
+    this.date.setMonth(this.date.getMonth() + 1);
+    this.month = this.monthService.getMonthName(this.date.getMonth());
+    this.year = this.date.getFullYear();
+    this.date = new Date(this.date);
   }
 
   public prev() {
-    this.month = this.monthService.getPrevMonth(this.month);
-    if (this.month === 'DECEMBER') {
-      --this.year;
-    }
+    this.date.setMonth(this.date.getMonth() - 1);
+    this.month = this.monthService.getMonthName(this.date.getMonth());
+    this.year = this.date.getFullYear();
+    this.date = new Date(this.date);
   }
 
   public reset() {
-    const yearMonth = this.monthService.resetMonth();
-    this.month = this.monthService.getMonthName(yearMonth.getMonth());
-    this.year = yearMonth.getFullYear();
+    this.date = new Date();
+    this.month = this.monthService.getMonthName(this.date.getMonth());
+    this.year = this.date.getFullYear();
+    this.date = new Date(this.date);
   }
 
 }

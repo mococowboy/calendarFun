@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, Input, OnChanges} from '@angular/core';
 import {MonthService} from '../month.service';
 
 @Component({
@@ -8,8 +8,7 @@ import {MonthService} from '../month.service';
 })
 export class MonthComponent implements OnChanges {
 
-  @Input() month: string;
-  @Input() year: number;
+  @Input() date: Date;
 
   monthService: MonthService;
 
@@ -20,11 +19,11 @@ export class MonthComponent implements OnChanges {
   }
 
   ngOnChanges() {
-    this.monthArray = this.monthService.generatedMonth(this.year, this.monthService.getMonthIndex(this.month));
+    this.monthArray = this.monthService.generatedMonth(this.date.getFullYear(), this.date.getMonth());
   }
 
   public isCurrentMonth(date: Date): boolean {
-    return this.monthService.getMonthIndex(this.month) == date.getMonth();
+    return this.date.getMonth() == date.getMonth();
   }
 
 }

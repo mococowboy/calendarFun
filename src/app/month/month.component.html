@@ -1,4 +1,7 @@
 <table>
+  <tr>
+    <td>Sun</td><td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td>
+  </tr>
   <tr *ngFor="let row of monthArray">
     <td *ngFor="let day of row">
       <span [attr.title]="day | date: 'fullDate'"
