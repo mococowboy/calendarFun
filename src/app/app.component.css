@@ -1,0 +1,28 @@
+.cal {
+  display: flex;
+  /*align-items: center;*/
+  align-content: center;
+  flex-direction: column;
+  width: 12em;
+}
+.header {
+
+}
+.header h2 {
+  text-align: center;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+.nav_bar {
+
+}
+.nav_bar button {
+  flex: 1 auto;
+  margin: 5px;
+}
+.cal_main {
+
+}
+.cal_main app-month {
+  flex: 1 auto;
+}

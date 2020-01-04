@@ -1,8 +1,8 @@
 <div class="cal">
-  <header>
-    <h2>{{this.date | date:'yyyy MMMM'}}</h2>
+  <header class="header">
+    <h2>{{this.date | date:'MMMM yyyy'}}</h2>
   </header>
-  <nav>
+  <nav class="nav_bar">
     <button (click)="prev()">PREV</button>
     <button (click)="reset()">NOW</button>
     <button (click)="next()">NEXT</button>
