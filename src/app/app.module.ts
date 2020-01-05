@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Injector } from '@angular/core';
+import {NgModule, Injector} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { MonthComponent } from './month/month.component';
+import { MonthService } from "./month.service";
 import {createCustomElement} from '@angular/elements';
 
 @NgModule({
@@ -14,7 +15,7 @@ import {createCustomElement} from '@angular/elements';
     BrowserModule
   ],
   bootstrap: [AppComponent],
-  providers: [],
+  providers: [MonthService],
   entryComponents: [AppComponent]
 })
 export class AppModule {
