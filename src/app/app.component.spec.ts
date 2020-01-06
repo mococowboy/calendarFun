@@ -20,10 +20,11 @@ describe('AppComponent', () => {
   it(`should advance a month when next is called'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
+    app.date = new Date(2020, 5);
     app.next();
     fixture.detectChanges();
-    expect(app.date.getFullYear()).toBe(new Date().getFullYear());
-    expect(app.date.getMonth()).toBe(new Date().getMonth() + 1)
+    expect(app.date.getFullYear()).toBe(2020);
+    expect(app.date.getMonth()).toBe(6);
   });
 
   it(`should substract a month when prev is called'`, () => {
