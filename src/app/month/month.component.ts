@@ -25,4 +25,8 @@ export class MonthComponent implements OnChanges {
     return this.date.getMonth() == date.getMonth();
   }
 
+  public writeToConsole(date: Date): void {
+    console.log('The date clicked on was ' + date);
+  }
+
 }
