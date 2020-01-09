@@ -30,7 +30,6 @@ export class AppComponent {
   public reset() {
     this.date = new Date();
     this.date.setDate(15);
-    //this.date = new Date(this.date);
   }
 
 }

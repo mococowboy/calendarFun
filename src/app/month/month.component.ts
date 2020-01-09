@@ -12,6 +12,7 @@ export class MonthComponent implements OnChanges {
 
   monthService: MonthService;
   monthArray: Date[][];
+  times: Date[] = [];
 
   constructor(monthService: MonthService) {
     this.monthService = monthService;
@@ -19,6 +20,7 @@ export class MonthComponent implements OnChanges {
 
   ngOnChanges() {
     this.monthArray = this.monthService.generatedMonth(this.date.getFullYear(), this.date.getMonth());
+    this.times = [];
   }
 
   public isCurrentMonth(date: Date): boolean {
@@ -26,7 +28,7 @@ export class MonthComponent implements OnChanges {
   }
 
   public writeToConsole(date: Date): void {
-    console.log('The date clicked on was ' + date);
+    this.times = this.monthService.populateTypicalDay(date);
   }
 
 }

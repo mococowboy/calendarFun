@@ -41,4 +41,13 @@ export class MonthService {
     return (this.isLeapYear(year)) ? 29 : 28;
   }
 
+  public populateTypicalDay(date: Date): Date[] {
+    let dates: Date[] = [];
+    //9:30 to 5:30
+    for (let i = 570; i <= 1050; i += 30) {
+      dates.push(new Date(date.getFullYear(), date.getMonth(), date.getDate(), Math.floor(i / 60), i % 60))
+    }
+    return dates;
+  }
+
 }
