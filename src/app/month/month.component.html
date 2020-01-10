@@ -13,10 +13,10 @@
   </tr>
 </table>
 <article *ngIf="times.length > 0">
-  <dl>
-    <dt>Available Times on {{times[0] | date:'mediumDate'}}</dt>
-    <dd *ngFor="let time of times">
-      {{time | date: 'shortTime'}}
-    </dd>
-  </dl>
+  <label for="times">Available Times on {{times[0] | date:'mediumDate'}}</label>
+  <select name="times" id="times">
+      <option *ngFor="let time of times">
+        {{time | date: 'shortTime'}}
+      </option>
+    </select>
 </article>
