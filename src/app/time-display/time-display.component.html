@@ -1,0 +1,9 @@
+<details>
+  <summary>{{date | date:'mediumDate'}}</summary>
+  <label for="times">Available Times</label>
+  <select name="times" id="times">
+    <option *ngFor="let time of times">
+      {{time | date: 'shortTime'}}
+    </option>
+  </select>
+</details>

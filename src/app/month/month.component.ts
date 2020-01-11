@@ -13,12 +13,14 @@ export class MonthComponent implements OnChanges {
   monthService: MonthService;
   monthArray: Date[][];
   times: Date[] = [];
+  selectedDate: Date;
 
   constructor(monthService: MonthService) {
     this.monthService = monthService;
   }
 
   ngOnChanges() {
+    console.log(this.date);
     this.monthArray = this.monthService.generatedMonth(this.date.getFullYear(), this.date.getMonth());
     this.times = [];
   }
@@ -28,7 +30,8 @@ export class MonthComponent implements OnChanges {
   }
 
   public writeToConsole(date: Date): void {
-    this.times = this.monthService.populateTypicalDay(date);
+    this.selectedDate = date;
+    console.log(this.selectedDate);
   }
 
 }

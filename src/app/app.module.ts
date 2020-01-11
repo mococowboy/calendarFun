@@ -6,11 +6,13 @@ import { MonthComponent } from './month/month.component';
 import { MonthService } from "./month.service";
 import {createCustomElement} from '@angular/elements';
 import {ReactiveFormsModule} from "@angular/forms";
+import { TimeDisplayComponent } from './time-display/time-display.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MonthComponent
+    MonthComponent,
+    TimeDisplayComponent
   ],
     imports: [
         BrowserModule,
