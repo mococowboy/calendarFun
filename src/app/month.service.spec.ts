@@ -30,5 +30,19 @@ describe('MonthService', () => {
 
   });
 
+  describe('populateTypicalDay should', () => {
+    beforeEach(() => TestBed.configureTestingModule({}));
+
+    it('return an array of length 17 when given a date', () => {
+      const service: MonthService = TestBed.get(MonthService);
+      expect(service.populateTypicalDay(new Date(2020, 0, 10)).length).toBe(17);
+    });
+
+    it('return an array containing a date of 9:30', () => {
+      const service: MonthService = TestBed.get(MonthService);
+      expect(service.populateTypicalDay(new Date(2020, 0, 10))[0]).toEqual(new Date(2020, 0, 10, 9, 30));
+    });
+
+  });
 
 });

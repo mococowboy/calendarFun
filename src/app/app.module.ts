@@ -5,15 +5,17 @@ import { AppComponent } from './app.component';
 import { MonthComponent } from './month/month.component';
 import { MonthService } from "./month.service";
 import {createCustomElement} from '@angular/elements';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
     MonthComponent
   ],
-  imports: [
-    BrowserModule
-  ],
+    imports: [
+        BrowserModule,
+        ReactiveFormsModule
+    ],
   bootstrap: [AppComponent],
   providers: [MonthService],
   entryComponents: [AppComponent]
