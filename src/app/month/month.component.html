@@ -6,7 +6,8 @@
     <td *ngFor="let day of row">
       <span [attr.title]="day | date: 'fullDate'"
             [style.color]="isCurrentMonth(day) ? 'black' : 'lightgray'"
-            (click)="writeToConsole(day)"  >
+            (click)="writeToConsole(day)"
+            tabindex="0">
         {{day | date: 'dd'}}
       </span>
     </td>

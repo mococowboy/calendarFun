@@ -20,9 +20,9 @@ export class MonthComponent implements OnChanges {
   }
 
   ngOnChanges() {
-    console.log(this.date);
     this.monthArray = this.monthService.generatedMonth(this.date.getFullYear(), this.date.getMonth());
     this.times = [];
+    this.selectedDate = null;
   }
 
   public isCurrentMonth(date: Date): boolean {
@@ -31,7 +31,6 @@ export class MonthComponent implements OnChanges {
 
   public writeToConsole(date: Date): void {
     this.selectedDate = date;
-    console.log(this.selectedDate);
   }
 
 }
