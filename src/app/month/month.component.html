@@ -4,11 +4,10 @@
   </tr>
   <tr *ngFor="let row of monthArray">
     <td *ngFor="let day of row">
-      <span [attr.title]="day | date: 'fullDate'"
+        <span [attr.title]="day | date: 'fullDate'"
             [style.color]="isCurrentMonth(day) ? 'black' : 'lightgray'"
-            (click)="writeToConsole(day)"
-            tabindex="0">
-        {{day | date: 'dd'}}
+            (click)="writeToConsole(day)">
+        <a href="#">{{day | date: 'dd'}}</a>
       </span>
     </td>
   </tr>
