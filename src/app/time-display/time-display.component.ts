@@ -1,5 +1,6 @@
 import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {MonthService} from "../month.service";
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-time-display',
@@ -12,9 +13,11 @@ export class TimeDisplayComponent implements OnChanges {
   date: Date;
   times: Date[] = [];
   monthService: MonthService;
+  timeSelected: FormControl;
 
   constructor(monthService: MonthService) {
     this.monthService = monthService;
+    this.timeSelected = new FormControl('');
   }
 
   ngOnChanges(changes: SimpleChanges) {

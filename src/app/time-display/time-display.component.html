@@ -1,9 +1,9 @@
-<details>
-  <summary>{{date | date:'mediumDate'}}</summary>
+<div>
+  <h3>{{date | date:'mediumDate'}}</h3>
   <label for="times">Available Times</label>
-  <select name="times" id="times">
+  <select name="times" id="times" [formControl]="timeSelected">
     <option *ngFor="let time of times">
       {{time | date: 'shortTime'}}
     </option>
   </select>
-</details>
+</div>
