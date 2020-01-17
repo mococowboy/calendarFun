@@ -8,3 +8,9 @@ table td {
 a {
   color: inherit;
 }
+.current_month {
+  color: black;
+}
+.not_current_month {
+  color: lightgray;
+}
