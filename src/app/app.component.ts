@@ -1,18 +1,18 @@
-import {Component} from '@angular/core';
-import {MonthService} from './month.service';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'calendar-fun',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+  @Input()
+  message: string = '';
 
   date: Date;
-  monthService: MonthService;
 
-  constructor(monthService: MonthService) {
-    this.monthService = monthService;
+  constructor() {
     this.date = new Date();
     this.date.setDate(15);
   }
@@ -30,6 +30,10 @@ export class AppComponent {
   public reset() {
     this.date = new Date();
     this.date.setDate(15);
+  }
+
+  ngOnInit(): void {
+
   }
 
 }
