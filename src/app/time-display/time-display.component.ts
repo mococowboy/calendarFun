@@ -1,5 +1,5 @@
 import {
-  AfterViewInit,
+  AfterViewChecked,
   Component,
   Input,
   OnChanges,
@@ -14,9 +14,7 @@ import {FormControl} from "@angular/forms";
   templateUrl: './time-display.component.html',
   styleUrls: ['./time-display.component.css']
 })
-export class TimeDisplayComponent implements OnChanges, AfterViewInit {
-
-
+export class TimeDisplayComponent implements OnChanges, AfterViewChecked {
 
   @Input()
   date: Date;
@@ -31,7 +29,7 @@ export class TimeDisplayComponent implements OnChanges, AfterViewInit {
     this.timeSelected = new FormControl('');
   }
 
-  ngAfterViewInit(): void {
+  ngAfterViewChecked(): void {
     this.selectElement.nativeElement.focus();
   }
 
