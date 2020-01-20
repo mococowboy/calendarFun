@@ -1,11 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'calendar-fun',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
   @Input()
   message: string = '';
@@ -30,10 +30,6 @@ export class AppComponent implements OnInit {
   public reset() {
     this.date = new Date();
     this.date.setDate(15);
-  }
-
-  ngOnInit(): void {
-
   }
 
 }

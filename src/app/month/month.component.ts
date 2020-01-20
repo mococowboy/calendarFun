@@ -8,8 +8,8 @@ import {MonthService} from '../month.service';
 })
 export class MonthComponent implements OnChanges {
 
-  @Input() date: Date;
-
+  @Input()
+  date: Date;
   monthService: MonthService;
   monthArray: Date[][];
   times: Date[] = [];
