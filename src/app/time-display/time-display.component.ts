@@ -19,6 +19,7 @@ export class TimeDisplayComponent implements OnChanges, AfterViewChecked {
   @Input()
   date: Date;
   times: Date[] = [];
+  availableTimes: TimeCell[];
   monthService: MonthService;
   timeSelected: FormControl;
   @ViewChild('selectElement', {static: false})
@@ -34,7 +35,20 @@ export class TimeDisplayComponent implements OnChanges, AfterViewChecked {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.times = this.monthService.populateTypicalDay(this.date);
+    this.availableTimes = this.monthService.populateTypicalDay(this.date).map(d => new TimeCell(d, Math.random() > 0.7));
   }
+
+}
+
+export class TimeCell {
+
+  date: Date;
+  active: boolean;
+
+  constructor(date: Date, active: boolean) {
+    this.date = date;
+    this.active = active;
+  }
+
 
 }

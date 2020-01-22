@@ -2,8 +2,8 @@
   <h3>{{date | date:'mediumDate'}}</h3>
   <label for="times">Available Times</label>
   <select name="times" id="times" [formControl]="timeSelected" #selectElement>
-    <option *ngFor="let time of times">
-      {{time | date: 'shortTime'}}
+    <option *ngFor="let timeCell of availableTimes" [disabled]="timeCell.active">
+      {{timeCell.date | date: 'shortTime'}}
     </option>
   </select>
 </div>
