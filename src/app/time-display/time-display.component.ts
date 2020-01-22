@@ -36,6 +36,7 @@ export class TimeDisplayComponent implements OnChanges, AfterViewChecked {
 
   ngOnChanges(changes: SimpleChanges) {
     this.availableTimes = this.monthService.populateTypicalDay(this.date).map(d => new TimeCell(d, Math.random() > 0.7));
+    this.monthService.getAvailableTimes(this.date).subscribe();
   }
 
 }

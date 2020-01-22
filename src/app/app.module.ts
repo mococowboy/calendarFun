@@ -7,6 +7,7 @@ import { MonthService } from "./month.service";
 import {createCustomElement} from '@angular/elements';
 import {ReactiveFormsModule} from "@angular/forms";
 import { TimeDisplayComponent } from './time-display/time-display.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TimeDisplayComponent } from './time-display/time-display.component';
   ],
   imports: [
         BrowserModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientModule
     ],
   bootstrap: [],
   providers: [MonthService],

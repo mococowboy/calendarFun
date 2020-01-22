@@ -1,9 +1,14 @@
 import {Injectable} from '@angular/core';
+import {HttpClient, HttpParams} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MonthService {
+
+  constructor(private http: HttpClient) {}
+
+  private URL = "calendarTime";
 
   private MONTH_DAYS: number[] = [
     31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
@@ -48,6 +53,12 @@ export class MonthService {
       dates.push(new Date(date.getFullYear(), date.getMonth(), date.getDate(), Math.floor(i / 60), i % 60))
     }
     return dates;
+  }
+
+  public getAvailableTimes(date: Date) {
+    let formattedDate = date.getFullYear() + "-" + date.getMonth() + 1;
+    let params = new HttpParams().set('date', formattedDate);
+    return this.http.get(this.URL, {params});
   }
 
 }
