@@ -3,11 +3,10 @@ import {NgModule, Injector} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { MonthComponent } from './month/month.component';
-import { MonthService } from "./month.service";
+import { MonthService } from './month.service';
 import {createCustomElement} from '@angular/elements';
-import {ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from '@angular/forms';
 import { TimeDisplayComponent } from './time-display/time-display.component';
-import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -17,8 +16,7 @@ import {HttpClientModule} from "@angular/common/http";
   ],
   imports: [
         BrowserModule,
-        ReactiveFormsModule,
-        HttpClientModule
+        ReactiveFormsModule
     ],
   bootstrap: [],
   providers: [MonthService],

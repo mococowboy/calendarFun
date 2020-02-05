@@ -6,8 +6,8 @@ import {
   SimpleChanges,
   ViewChild
 } from '@angular/core';
-import {MonthService} from "../month.service";
-import {FormControl} from "@angular/forms";
+import {MonthService} from '../month.service';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-time-display',
@@ -36,7 +36,6 @@ export class TimeDisplayComponent implements OnChanges, AfterViewChecked {
 
   ngOnChanges(changes: SimpleChanges) {
     this.availableTimes = this.monthService.populateTypicalDay(this.date).map(d => new TimeCell(d, Math.random() > 0.7));
-    this.monthService.getAvailableTimes(this.date).subscribe();
   }
 
 }
