@@ -20,13 +20,11 @@ export class TimeDisplayComponent implements OnChanges, AfterViewChecked {
   date: Date;
   times: Date[] = [];
   availableTimes: TimeCell[];
-  monthService: MonthService;
   timeSelected: FormControl;
   @ViewChild('selectElement')
   selectElement;
 
-  constructor(monthService: MonthService) {
-    this.monthService = monthService;
+  constructor(private monthService: MonthService) {
     this.timeSelected = new FormControl('');
   }
 
