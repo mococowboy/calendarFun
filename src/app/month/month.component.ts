@@ -10,13 +10,12 @@ export class MonthComponent implements OnChanges {
 
   @Input()
   date: Date;
-  monthService: MonthService;
   monthArray: Date[][];
   times: Date[] = [];
   selectedDate: Date;
 
-  constructor(monthService: MonthService) {
-    this.monthService = monthService;
+  constructor(private monthService: MonthService) {
+
   }
 
   ngOnChanges() {
