@@ -26,7 +26,7 @@ export class MonthComponent implements OnChanges {
   }
 
   public isCurrentMonth(date: Date): boolean {
-    return this.date.getMonth() == date.getMonth();
+    return this.date.getMonth() === date.getMonth();
   }
 
   public writeToConsole(date: Date): void {

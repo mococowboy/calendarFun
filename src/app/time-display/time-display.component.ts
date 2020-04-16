@@ -50,5 +50,4 @@ export class TimeCell {
     this.active = active;
   }
 
-
 }
