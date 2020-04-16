@@ -22,7 +22,7 @@ export class TimeDisplayComponent implements OnChanges, AfterViewChecked {
   availableTimes: TimeCell[];
   monthService: MonthService;
   timeSelected: FormControl;
-  @ViewChild('selectElement', {static: false})
+  @ViewChild('selectElement')
   selectElement;
 
   constructor(monthService: MonthService) {
