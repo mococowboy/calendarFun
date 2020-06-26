@@ -7,11 +7,9 @@
 }
 .header h2 {
   text-align: center;
-  margin-top: 0.1em;
-  margin-bottom: 0.1em;
 }
 .header {
-
+  background-color: blue;
 }
 .nav_bar button {
   flex: 1 auto;
@@ -19,7 +17,4 @@
 }
 .cal_main app-month {
   flex: 1 auto;
-}
-.cal_main {
-
 }
