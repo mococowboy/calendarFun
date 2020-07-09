@@ -12,6 +12,15 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/strictFun/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/strictFun/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/strictFun/e2e/tsconfig.json"
     }
   ]
 }

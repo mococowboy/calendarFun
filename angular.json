@@ -126,6 +126,127 @@
           }
         }
       }
+    },
+    "strictFun": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/strictFun",
+      "sourceRoot": "projects/strictFun/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/strictFun",
+            "index": "projects/strictFun/src/index.html",
+            "main": "projects/strictFun/src/main.ts",
+            "polyfills": "projects/strictFun/src/polyfills.ts",
+            "tsConfig": "projects/strictFun/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/strictFun/src/favicon.ico",
+              "projects/strictFun/src/assets"
+            ],
+            "styles": [
+              "projects/strictFun/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/strictFun/src/environments/environment.ts",
+                  "with": "projects/strictFun/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "strictFun:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "strictFun:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "strictFun:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/strictFun/src/test.ts",
+            "polyfills": "projects/strictFun/src/polyfills.ts",
+            "tsConfig": "projects/strictFun/tsconfig.spec.json",
+            "karmaConfig": "projects/strictFun/karma.conf.js",
+            "assets": [
+              "projects/strictFun/src/favicon.ico",
+              "projects/strictFun/src/assets"
+            ],
+            "styles": [
+              "projects/strictFun/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/strictFun/tsconfig.app.json",
+              "projects/strictFun/tsconfig.spec.json",
+              "projects/strictFun/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/strictFun/e2e/protractor.conf.js",
+            "devServerTarget": "strictFun:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "strictFun:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "calendarFun"
