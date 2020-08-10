@@ -40,7 +40,11 @@ describe('MonthService', () => {
 
     it('return an array containing a date of 9:30', () => {
       const service: MonthService = TestBed.get(MonthService);
-      expect(service.populateTypicalDay(new Date(2020, 0, 10))[0]).toEqual(new Date(2020, 0, 10, 9, 30));
+      // day that this test will run for...it doesn't really amtter.
+      const day = new Date(2020, 8, 9);
+      // predicate that filters out the time under test.
+      const filter = (d) => d.getHours() === 9 && d.getMinutes() === 30;
+      expect(service.populateTypicalDay(day).filter(filter).length).toBe(1);
     });
 
   });

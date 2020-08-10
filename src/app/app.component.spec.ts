@@ -1,6 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import {MonthComponent} from "./month/month.component";
+import {MonthComponent} from './month/month.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -34,7 +34,7 @@ describe('AppComponent', () => {
     app.prev();
     fixture.detectChanges();
     expect(app.date.getFullYear()).toBe(2020);
-    expect(app.date.getMonth()).toBe(1)
+    expect(app.date.getMonth()).toBe(1);
   });
 
   it(`should set to current month when reset is called'`, () => {
