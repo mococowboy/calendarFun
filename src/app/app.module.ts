@@ -9,18 +9,17 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { TimeDisplayComponent } from './time-display/time-display.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MonthComponent,
-    TimeDisplayComponent
-  ],
-  imports: [
+    declarations: [
+        AppComponent,
+        MonthComponent,
+        TimeDisplayComponent
+    ],
+    imports: [
         BrowserModule,
         ReactiveFormsModule
     ],
-  bootstrap: [],
-  providers: [MonthService],
-  entryComponents: [AppComponent]
+    bootstrap: [],
+    providers: [MonthService]
 })
 export class AppModule {
   constructor(private injector: Injector) {}
