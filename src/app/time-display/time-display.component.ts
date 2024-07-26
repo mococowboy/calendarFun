@@ -7,7 +7,7 @@ import {
   ViewChild
 } from '@angular/core';
 import {MonthService} from '../month.service';
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-time-display',
@@ -20,12 +20,12 @@ export class TimeDisplayComponent implements OnChanges, AfterViewChecked {
   date: Date;
   times: Date[] = [];
   availableTimes: TimeCell[];
-  timeSelected: FormControl;
+  timeSelected: UntypedFormControl;
   @ViewChild('selectElement')
   selectElement;
 
   constructor(private monthService: MonthService) {
-    this.timeSelected = new FormControl('');
+    this.timeSelected = new UntypedFormControl('');
   }
 
   ngAfterViewChecked(): void {
