@@ -70,18 +70,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "calendarFun:build"
+            "buildTarget": "calendarFun:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "calendarFun:build:production"
+              "buildTarget": "calendarFun:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "calendarFun:build"
+            "buildTarget": "calendarFun:build"
           }
         },
         "test": {
@@ -177,18 +177,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "strictFun:build"
+            "buildTarget": "strictFun:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "strictFun:build:production"
+              "buildTarget": "strictFun:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "strictFun:build"
+            "buildTarget": "strictFun:build"
           }
         },
         "test": {
