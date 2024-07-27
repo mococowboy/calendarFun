@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build:elements": "ng build calendarFun --prod && node build-elements.js",
+    "build:elements": "ng build calendarFun && node build-elements.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
